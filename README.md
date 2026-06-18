@@ -5,10 +5,25 @@ A cinematic, fully-functional **voice and text agentic AI superagent named
 composure, an interactive 3D manifestation, and three product surfaces:
 **Chats**, **Workspaces**, and **Agent**.
 
-Built with Next.js 15 + React 19, Tailwind, framer-motion, Spline, and the
+Built with Next.js 16 + React 19, Tailwind, framer-motion, Spline, and the
 Claude API (`claude-opus-4-8`).
 
-![sections: Chats · Workspaces · Agent](public/fonts/README.md)
+## ▶️ Live preview
+
+**One-click deploy** (free Vercel tier — Demo mode works with zero config):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhuzkeymil-art%2FJarvis%2Ftree%2Fclaude%2Fjarvis-voice-ai-agent-betxbn&env=ANTHROPIC_API_KEY,ELEVENLABS_API_KEY&envDescription=Both%20optional%20%E2%80%94%20leave%20blank%20for%20Demo%20mode%3B%20add%20a%20Claude%20key%20for%20Live&envLink=https%3A%2F%2Fgithub.com%2Fhuzkeymil-art%2FJarvis%2Fblob%2Fclaude%2Fjarvis-voice-ai-agent-betxbn%2F.env.example&project-name=jarvis)
+
+The deploy flow asks for two **optional** env vars — leave them blank to launch
+in Demo mode, or add `ANTHROPIC_API_KEY` (Live brain) and `ELEVENLABS_API_KEY`
+(rich British voice). You can also add or change them later in Vercel →
+Project → Settings → Environment Variables.
+
+> Prefer to wire up your own Vercel project? Import the repo at
+> <https://vercel.com/new>, select the `claude/jarvis-voice-ai-agent-betxbn`
+> branch, and deploy — Next.js is auto-detected, no settings needed.
+
+Or run it locally in ~1 minute — see **Getting started** below.
 
 ## ✨ Features
 
