@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--ARTIFACT-START-->
+<title>A Bicycle for the Mind</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Silkscreen&display=swap">
+<style>
+/* Layout: a classic-Mac menu bar on top; each page is one exhibit column where text and artifacts sit side by side, stacking on phones */
+:root {
+  --bg: #F2F4F3;
+  --surface: #FFFFFF;
+  --panel: #E3E7E5;
+  --ink: #132028;
+  --ink-2: #43525A;
+  --muted: #66757C;
+  --line: #C8D0CF;
+  --accent: #007891;        /* Bondi Blue, darkened for text */
+  --accent-bright: #0095B6; /* Bondi Blue, for fills */
+  --accent-soft: #CFEAF0;
+  --note-bg: #FFF3BF;
+  --note-ink: #4D3F00;
+  --note-line: #C9AA34;
+  --on-glass: #F2F5F6;
+
+  /* illustration materials */
+  --case: #D8D1BF;
+  --case-shade: #BFB6A1;
+  --i-edge: #2E2C27;
+  --screen: #0E2418;
+  --phosphor: #72E39C;
+  --plastic: #F7F8F6;
+  --lcd: #C6D2D5;
+  --glass: #16191B;
+  --chrome: #A5AEB2;
+  --display: #123150;
+  --led: #E0473C;
+  --key: #4D483F;
+  --paper: #FBFAF4;
+  --a2: #E0473C;
+  --a3: #3DAA58;
+  --a4: #F0B23B;
+  --a5: #8B6AD6;
+
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-pixel: "Silkscreen", "Courier New", monospace;
+  --measure: 36rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C161B; --surface: #13212A; --panel: #1B2C35; --ink: #E4EDEF; --ink-2: #B2C1C6;
+    --muted: #8496A0; --line: #2A3D47; --accent: #53C8DF; --accent-bright: #2DB2CE; --accent-soft: #17404B;
+    --note-bg: #352E12; --note-ink: #F2E2A2; --note-line: #8C7A30;
+    --case: #C4BCA9; --case-shade: #A69D88; --plastic: #E6E9E6; --lcd: #B5C2C5; --glass: #05080A;
+    --chrome: #8E989D; --display: #16385A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C161B; --surface: #13212A; --panel: #1B2C35; --ink: #E4EDEF; --ink-2: #B2C1C6;
+  --muted: #8496A0; --line: #2A3D47; --accent: #53C8DF; --accent-bright: #2DB2CE; --accent-soft: #17404B;
+  --note-bg: #352E12; --note-ink: #F2E2A2; --note-line: #8C7A30;
+  --case: #C4BCA9; --case-shade: #A69D88; --plastic: #E6E9E6; --lcd: #B5C2C5; --glass: #05080A;
+  --chrome: #8E989D; --display: #16385A;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: 4rem; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-underline-offset: 0.18em; }
+:focus-visible { outline: 3px solid var(--accent-bright); outline-offset: 2px; }
+img, svg { max-width: 100%; }
+
+/* ---------- menu bar ---------- */
+.menubar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-inline: 16px;
+  min-height: 2.75rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--ink);
+}
+.mark {
+  flex: none;
+  font-family: var(--f-pixel);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  padding: 0.1rem 0.4rem;
+}
+.menubar nav { flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.5rem), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 1.5rem), transparent); }
+.menubar nav::-webkit-scrollbar { display: none; }
+.menubar ul { display: flex; gap: 0.15rem; margin: 0; padding: 0; list-style: none; }
+.menubar nav a {
+  display: block;
+  white-space: nowrap;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.3rem 0.65rem;
+}
+.menubar nav a:hover { background: var(--panel); }
+.menubar nav a[aria-current="page"] { background: var(--ink); color: var(--surface); }
+.notes-toggle {
+  flex: none;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+}
+.notes-toggle[aria-pressed="true"] { background: var(--note-bg); color: var(--note-ink); border-color: var(--note-line); }
+
+/* ---------- pages ---------- */
+main { padding-inline: clamp(16px, 4vw, 48px); }
+.page { max-width: 68rem; margin-inline: auto; padding-block: 3rem 4rem; }
+.js .page { display: none; }
+.js .page.is-active { display: block; animation: rise 0.35s ease-out; }
+@keyframes rise { from { transform: translateY(8px); } to { transform: none; } }
+
+.eyebrow {
+  font-family: var(--f-pixel);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+h1 {
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 7.5vw, 5.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-stretch: 125%;
+  font-weight: 760;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.25rem;
+}
+h3 {
+  font-stretch: 110%;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+p { margin: 0 0 1rem; max-width: var(--measure); }
+.lede { font-size: 1.3rem; line-height: 1.5; color: var(--ink-2); }
+.stack { display: flex; flex-direction: column; gap: 1.5rem; min-width: 0; }
+
+/* ---------- home ---------- */
+.home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+.subtitle {
+  font-family: var(--f-display);
+  font-stretch: 100%;
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  line-height: 1.25;
+  color: var(--ink-2);
+  margin: 1rem 0 2rem;
+}
+.thesis { font-size: 1.22rem; line-height: 1.55; }
+.parade {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: end;
+  margin-top: 3.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 3px solid var(--ink);
+}
+.parade a { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--ink); }
+.parade svg { height: clamp(84px, 15vw, 168px); width: 100%; transition: transform 0.2s ease; }
+.parade a:hover svg { transform: translateY(-4px); }
+.parade .yr { font-family: var(--f-pixel); font-size: 0.85rem; letter-spacing: 0.06em; }
+
+/* classic window chrome */
+.window { background: var(--surface); border: 1px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
+.titlebar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.4rem;
+  border-bottom: 1px solid var(--ink);
+  background:
+    repeating-linear-gradient(to bottom, var(--ink) 0 1px, transparent 1px 3px)
+    content-box;
+  padding: 0.25rem 0.35rem;
+}
+.closebox {
+  position: absolute;
+  left: 0.6rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--ink);
+  box-shadow: 0 0 0 3px var(--surface);
+}
+.wtitle {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  background: var(--surface);
+  padding-inline: 0.5rem;
+  line-height: 1;
+}
+.about dl { margin: 0; padding: 1rem 1.25rem 1.25rem; display: grid; gap: 0.55rem; }
+.about dl > div { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px dotted var(--line); padding-bottom: 0.45rem; }
+.about dl > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.about dt { font-family: var(--f-display); font-size: 0.88rem; color: var(--ink-2); }
+.about dd { margin: 0; font-family: var(--f-display); font-weight: 650; font-size: 0.95rem; text-align: right; font-variant-numeric: tabular-nums; }
+.fill-in { background: var(--note-bg); color: var(--note-ink); border-bottom: 1px dashed var(--note-line); padding-inline: 0.3em; }
+
+/* ---------- content layouts ---------- */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 2.5rem 3rem;
+  align-items: start;
+}
+.split + .split { margin-top: 3rem; }
+.split.flip > :first-child { order: 2; }
+.milestone { padding-block: 3rem; border-top: 1px solid var(--line); }
+.milestone .when {
+  font-family: var(--f-pixel);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+/* artifact frames */
+.artifact { margin: 0; min-width: 0; }
+.artifact .pic { display: block; padding: 1.25rem; background: var(--surface); }
+.artifact svg { display: block; width: 100%; height: auto; max-height: 21rem; margin-inline: auto; }
+.artifact figcaption, .chart figcaption:not(.credit) { margin-top: 0.75rem; font-family: var(--f-display); font-size: 0.92rem; line-height: 1.4; color: var(--ink-2); }
+.credit { display: block; font-family: var(--f-display); font-size: 0.78rem; line-height: 1.4; color: var(--muted); margin-top: 0.2rem; }
+
+/* primary source quotes */
+.quote { position: relative; margin: 0; padding: 1.25rem 1.25rem 1.1rem 3.25rem; background: var(--panel); max-width: var(--measure); }
+.quote::before {
+  content: "\201C";
+  position: absolute;
+  left: 0.85rem;
+  top: 0.35rem;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--accent);
+}
+.quote blockquote { margin: 0; }
+.quote blockquote p { font-style: italic; font-size: 1.2rem; line-height: 1.45; margin: 0 0 0.6rem; }
+.quote .credit { margin: 0; }
+
+/* video slots */
+.media { margin: 0; max-width: var(--measure); }
+.media .screen-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  background: var(--glass);
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  color: var(--on-glass);
+  overflow: hidden;
+}
+.media .play { width: 3.5rem; height: 3.5rem; }
+.media .meta {
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.7rem;
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  font-family: var(--f-display);
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+.media .time { font-family: var(--f-pixel); font-size: 0.75rem; background: var(--on-glass); color: var(--glass); padding: 0.05rem 0.35rem; flex: none; }
+.media figcaption { margin-top: 0.5rem; font-family: var(--f-display); font-size: 0.85rem; }
+
+/* timeline rail */
+.rail { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 3px solid var(--ink); }
+.rail li { position: relative; padding-top: 1rem; }
+.rail li::before { content: ""; position: absolute; top: -0.6rem; left: 0; width: 1rem; height: 1rem; background: var(--bg); border: 3px solid var(--ink); border-radius: 50%; }
+.rail a { display: block; text-decoration: none; color: var(--ink); padding-right: 0.5rem; }
+.rail .yr { display: block; font-family: var(--f-pixel); font-size: clamp(1.1rem, 2.6vw, 1.6rem); color: var(--accent); }
+.rail .what { font-family: var(--f-display); font-weight: 650; font-size: 0.95rem; }
+.rail a:hover .what { text-decoration: underline; }
+
+/* chart */
+.chart { margin: 0; padding: 1.25rem 1.25rem 1rem; background: var(--surface); border: 1px solid var(--line); max-width: var(--measure); }
+.chart-title { font-family: var(--f-display); font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.meter-row { display: grid; grid-template-columns: 4rem minmax(0, 1fr) 3.2rem; gap: 0.75rem; align-items: center; margin-bottom: 0.8rem; font-family: var(--f-display); }
+.meter-label { font-size: 0.9rem; color: var(--ink-2); }
+.meter-value { font-weight: 700; font-size: 1.1rem; text-align: right; }
+.meter-track { display: block; height: 0.9rem; background: var(--accent-soft); border-radius: 0.45rem; overflow: hidden; }
+.meter-fill { display: block; height: 100%; width: var(--v); background: var(--accent-bright); border-radius: 0.45rem; }
+
+/* pager: the "next" button gets the classic default-button ring */
+.pager { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 3.5rem; padding: 1.5rem 6px 6px; border-top: 1px solid var(--line); }
+.pager a {
+  font-family: var(--f-display);
+  font-weight: 650;
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1.5px solid var(--ink);
+  border-radius: 0.6rem;
+  padding: 0.45rem 1rem;
+  background: var(--surface);
+}
+.pager a.next { margin-left: auto; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4.5px var(--ink); }
+.pager a:hover { background: var(--panel); }
+
+/* builder notes */
+.note { display: none; }
+.show-notes .note {
+  display: block;
+  max-width: var(--measure);
+  margin: 1.25rem 0;
+  padding: 0.8rem 1rem;
+  background: var(--note-bg);
+  color: var(--note-ink);
+  border: 1px dashed var(--note-line);
+  font-family: var(--f-display);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.note::before { content: "Builder note"; display: block; font-family: var(--f-pixel); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.3rem; }
+.note p { margin: 0 0 0.4rem; }
+.note p:last-child { margin-bottom: 0; }
+.note a { color: inherit; }
+.note table { border-collapse: collapse; font-variant-numeric: tabular-nums; margin-top: 0.3rem; }
+.note td { padding: 0.1rem 1rem 0.1rem 0; }
+
+/* process paper + bibliography */
+.pp-count { font-family: var(--f-display); font-weight: 650; font-size: 0.95rem; color: var(--ink-2); }
+.pp-section { margin-top: 2.25rem; }
+.placeholder {
+  font-family: var(--f-display);
+  font-size: 0.95rem;
+  color: var(--muted);
+  border: 1.5px dashed var(--line);
+  padding: 1rem 1.1rem;
+}
+.bib { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4rem; max-width: 46rem; }
+.bib .cite { padding-left: 2.5em; text-indent: -2.5em; margin: 0; max-width: none; }
+.bib .annot { margin: 0.35rem 0 0 2.5em; font-size: 1rem; color: var(--ink-2); max-width: none; }
+.bib-group { margin-top: 2.5rem; }
+.bib-group h3 { margin-bottom: 1.2rem; }
+
+footer.site {
+  padding: 2rem 16px 2.5rem;
+  text-align: center;
+  font-family: var(--f-pixel);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+/* illustration fills (used inside the SVG sprite) */
+.i-case { fill: var(--case); }
+.i-shade { fill: var(--case-shade); }
+.i-edge { stroke: var(--i-edge); stroke-width: 2; }
+.i-edge-thin { stroke: var(--i-edge); stroke-width: 1.2; }
+.i-ink { fill: var(--i-edge); }
+.i-screen { fill: var(--screen); }
+.i-phosphor { fill: var(--phosphor); font-family: var(--f-pixel); font-size: 10px; }
+.i-plastic { fill: var(--plastic); }
+.i-lcd { fill: var(--lcd); }
+.i-glass { fill: var(--glass); }
+.i-chrome { fill: var(--chrome); }
+.i-chrome-line { fill: none; stroke: var(--chrome); stroke-width: 1.5; }
+.i-display { fill: var(--display); }
+.i-led { fill: var(--led); }
+.i-led-off { fill: #5B2A27; }
+.i-key { fill: var(--key); }
+.i-paper { fill: var(--paper); }
+.i-floor { fill: var(--line); }
+.i-cord { fill: none; stroke: var(--i-edge); stroke-width: 2; stroke-linecap: round; }
+.i-earcord { fill: none; stroke: var(--ink-2); stroke-width: 1.5; stroke-linecap: round; }
+.i-a1 { fill: var(--accent-bright); }
+.i-a2 { fill: var(--a2); }
+.i-a3 { fill: var(--a3); }
+.i-a4 { fill: var(--a4); }
+.i-a5 { fill: var(--a5); }
+.i-cursor { fill: var(--phosphor); animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (max-width: 760px) {
+  .home-grid, .split { grid-template-columns: minmax(0, 1fr); }
+  .split.flip > :first-child { order: 0; }
+  .rail { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.5rem; border-top: 0; }
+  .rail li { border-top: 3px solid var(--ink); }
+  .page { padding-block: 2rem 3rem; }
+}
+@media (max-width: 520px) {
+  .parade { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2rem; }
+  .mark { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .page.is-active { animation: none; }
+  .i-cursor { animation: none; }
+  .parade svg { transition: none; }
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js");</script>
+
+<!-- Illustration sprite: simple drawings that stand in for real primary-source photos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="p-lights" width="11" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="5" r="2.2" class="i-led"/><circle cx="8.5" cy="5" r="2.2" class="i-led-off"/>
+    </pattern>
+    <pattern id="p-led" width="17.5" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="8.75" cy="5" r="3" class="i-led"/>
+    </pattern>
+    <pattern id="p-led2" width="17.5" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="8.75" cy="5" r="3" class="i-led-off"/>
+    </pattern>
+    <pattern id="p-switch" width="17.5" height="24" patternUnits="userSpaceOnUse">
+      <rect x="6.75" y="6" width="4" height="15" rx="2" class="i-chrome"/><circle cx="8.75" cy="6" r="3" class="i-chrome"/>
+    </pattern>
+    <pattern id="p-key" width="17" height="13" patternUnits="userSpaceOnUse">
+      <rect x="1.5" y="1.5" width="14" height="10" rx="2" class="i-key"/>
+    </pattern>
+    <pattern id="p-minikey" width="10" height="18" patternUnits="userSpaceOnUse">
+      <rect x="1" y="2" width="8" height="14" rx="3" class="i-chrome"/>
+    </pattern>
+    <pattern id="p-stripes" width="4" height="2" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" class="i-ink"/>
+    </pattern>
+  </defs>
+
+  <symbol id="s-mainframe" viewBox="0 0 360 220">
+    <rect class="i-floor" x="0" y="204" width="360" height="4"/>
+    <rect class="i-case i-edge" x="16" y="34" width="74" height="170" rx="3"/>
+    <rect class="i-shade i-edge-thin" x="24" y="46" width="58" height="62" rx="2"/>
+    <circle class="i-plastic i-edge" cx="40" cy="68" r="12"/><circle class="i-ink" cx="40" cy="68" r="3"/>
+    <circle class="i-plastic i-edge" cx="66" cy="68" r="12"/><circle class="i-ink" cx="66" cy="68" r="3"/>
+    <rect class="i-ink" x="30" y="92" width="46" height="4" rx="1"/>
+    <rect class="i-shade" x="24" y="120" width="58" height="72" rx="2"/>
+    <rect class="i-case i-edge" x="98" y="34" width="110" height="170" rx="3"/>
+    <rect class="i-ink" x="108" y="46" width="90" height="60" rx="2"/>
+    <rect x="112" y="50" width="82" height="52" fill="url(#p-lights)"/>
+    <rect class="i-shade" x="108" y="116" width="90" height="76" rx="2"/>
+    <rect class="i-ink" x="118" y="128" width="70" height="3"/><rect class="i-ink" x="118" y="140" width="70" height="3"/><rect class="i-ink" x="118" y="152" width="70" height="3"/>
+    <rect class="i-case i-edge" x="216" y="34" width="74" height="170" rx="3"/>
+    <rect class="i-shade i-edge-thin" x="224" y="46" width="58" height="62" rx="2"/>
+    <circle class="i-plastic i-edge" cx="240" cy="68" r="12"/><circle class="i-ink" cx="240" cy="68" r="3"/>
+    <circle class="i-plastic i-edge" cx="266" cy="68" r="12"/><circle class="i-ink" cx="266" cy="68" r="3"/>
+    <rect class="i-ink" x="230" y="92" width="46" height="4" rx="1"/>
+    <rect class="i-shade" x="224" y="120" width="58" height="72" rx="2"/>
+    <rect class="i-case i-edge" x="302" y="152" width="48" height="52" rx="2"/>
+    <path class="i-paper i-edge-thin" d="M312 132 V100 H340 V132 Z"/>
+    <rect class="i-ink" x="317" y="108" width="18" height="2"/><rect class="i-ink" x="317" y="114" width="14" height="2"/><rect class="i-ink" x="317" y="120" width="18" height="2"/>
+    <rect class="i-shade i-edge" x="296" y="128" width="60" height="26" rx="3"/>
+    <rect x="302" y="138" width="48" height="10" fill="url(#p-key)"/>
+  </symbol>
+
+  <symbol id="s-altair" viewBox="0 0 360 150">
+    <rect class="i-ink" x="24" y="134" width="22" height="8" rx="2"/><rect class="i-ink" x="314" y="134" width="22" height="8" rx="2"/>
+    <rect class="i-lcd i-edge" x="8" y="20" width="344" height="116" rx="4"/>
+    <path class="i-ink" d="M12 20 H348 a4 4 0 0 1 4 4 V78 H8 V24 a4 4 0 0 1 4 -4 Z"/>
+    <rect x="40" y="32" width="280" height="10" fill="url(#p-led)"/>
+    <rect x="40" y="52" width="280" height="10" fill="url(#p-led2)"/>
+    <rect x="40" y="92" width="280" height="24" fill="url(#p-switch)"/>
+    <rect class="i-ink" x="330" y="96" width="12" height="18" rx="2"/>
+  </symbol>
+
+  <symbol id="s-apple2" viewBox="0 0 360 262">
+    <rect class="i-case i-edge" x="92" y="8" width="176" height="132" rx="10"/>
+    <rect class="i-screen" x="106" y="20" width="148" height="104" rx="12"/>
+    <text class="i-phosphor" x="118" y="44">APPLE ][</text>
+    <text class="i-phosphor" x="118" y="62">]PRINT "HI"</text>
+    <text class="i-phosphor" x="118" y="80">HI</text>
+    <text class="i-phosphor" x="118" y="98">]</text>
+    <rect class="i-cursor" x="126" y="89" width="7" height="10"/>
+    <rect class="i-shade" x="160" y="140" width="40" height="10"/>
+    <path class="i-case i-edge" d="M48 150 H312 L338 244 Q340 254 330 254 H30 Q20 254 22 244 Z"/>
+    <path class="i-shade" d="M49 151 H311 L317 174 H43 Z"/>
+    <rect class="i-shade" x="70" y="186" width="221" height="54" rx="3"/>
+    <rect x="70" y="188" width="221" height="52" fill="url(#p-key)"/>
+  </symbol>
+
+  <symbol id="s-mac" viewBox="0 0 320 266">
+    <rect class="i-case i-edge" x="64" y="8" width="160" height="236" rx="12"/>
+    <rect class="i-shade" x="82" y="26" width="124" height="100" rx="8"/>
+    <rect class="i-plastic i-edge-thin" x="92" y="34" width="104" height="82" rx="4"/>
+    <rect class="i-ink" x="92" y="43" width="104" height="1"/>
+    <rect class="i-plastic i-edge-thin" x="106" y="54" width="66" height="46"/>
+    <rect x="107" y="56" width="64" height="7" fill="url(#p-stripes)"/>
+    <rect class="i-plastic i-edge-thin" x="111" y="56" width="6" height="6"/>
+    <rect class="i-ink" x="106" y="64" width="66" height="1"/>
+    <rect class="i-plastic i-edge-thin" x="180" y="50" width="10" height="9"/>
+    <rect class="i-plastic i-edge-thin" x="181" y="98" width="9" height="11"/>
+    <path class="i-plastic i-edge-thin" d="M146 76 V93 L150 89 L153 96 L156 95 L153 88 L159 88 Z"/>
+    <rect class="i-ink" x="150" y="180" width="56" height="5" rx="2"/>
+    <rect class="i-shade" x="66" y="226" width="156" height="16" rx="2"/>
+    <path class="i-cord" d="M268 198 C268 172 252 168 225 168"/>
+    <rect class="i-case i-edge" x="248" y="198" width="40" height="62" rx="9"/>
+    <rect class="i-shade" x="253" y="203" width="30" height="13" rx="3"/>
+  </symbol>
+
+  <symbol id="s-ipod" viewBox="0 0 220 300">
+    <path class="i-earcord" d="M110 210 V250 M110 250 C100 262 86 268 76 280 M110 250 C120 262 134 268 144 280"/>
+    <circle class="i-plastic i-edge-thin" cx="76" cy="284" r="8"/><circle class="i-plastic i-edge-thin" cx="144" cy="284" r="8"/>
+    <rect class="i-plastic i-edge" x="50" y="14" width="120" height="196" rx="16"/>
+    <rect class="i-lcd i-edge-thin" x="66" y="30" width="88" height="66" rx="4"/>
+    <rect class="i-ink" x="70" y="34" width="80" height="9"/>
+    <rect class="i-ink" x="72" y="50" width="50" height="4" rx="1" opacity=".55"/>
+    <rect class="i-ink" x="72" y="60" width="62" height="4" rx="1" opacity=".55"/>
+    <rect class="i-ink" x="70" y="68" width="80" height="10"/>
+    <rect class="i-ink" x="72" y="84" width="44" height="4" rx="1" opacity=".55"/>
+    <circle class="i-lcd i-edge-thin" cx="110" cy="156" r="40"/>
+    <circle class="i-plastic i-edge-thin" cx="110" cy="156" r="15"/>
+    <rect class="i-ink" x="102" y="123" width="16" height="3" rx="1"/>
+    <path class="i-ink" d="M106 184 L106 192 L113 188 Z"/>
+  </symbol>
+
+  <symbol id="s-iphone" viewBox="0 0 200 250">
+    <rect class="i-chrome" x="38" y="4" width="124" height="242" rx="20"/>
+    <rect class="i-glass" x="42" y="8" width="116" height="234" rx="17"/>
+    <rect class="i-chrome" x="88" y="22" width="24" height="4" rx="2"/>
+    <rect class="i-display" x="50" y="38" width="100" height="160"/>
+    <rect class="i-a1" x="56" y="48" width="18" height="18" rx="4"/><rect class="i-a3" x="79" y="48" width="18" height="18" rx="4"/>
+    <rect class="i-a4" x="102" y="48" width="18" height="18" rx="4"/><rect class="i-a2" x="125" y="48" width="18" height="18" rx="4"/>
+    <rect class="i-a5" x="56" y="74" width="18" height="18" rx="4"/><rect class="i-a4" x="79" y="74" width="18" height="18" rx="4"/>
+    <rect class="i-a1" x="102" y="74" width="18" height="18" rx="4"/><rect class="i-a3" x="125" y="74" width="18" height="18" rx="4"/>
+    <rect class="i-a2" x="56" y="100" width="18" height="18" rx="4"/><rect class="i-a1" x="79" y="100" width="18" height="18" rx="4"/>
+    <rect class="i-a3" x="102" y="100" width="18" height="18" rx="4"/><rect class="i-a5" x="125" y="100" width="18" height="18" rx="4"/>
+    <rect class="i-a4" x="56" y="126" width="18" height="18" rx="4"/><rect class="i-a2" x="79" y="126" width="18" height="18" rx="4"/>
+    <rect class="i-chrome" x="50" y="166" width="100" height="32" opacity=".35"/>
+    <rect class="i-a3" x="56" y="172" width="18" height="18" rx="4"/><rect class="i-a1" x="79" y="172" width="18" height="18" rx="4"/>
+    <rect class="i-a4" x="102" y="172" width="18" height="18" rx="4"/><rect class="i-a5" x="125" y="172" width="18" height="18" rx="4"/>
+    <circle class="i-chrome-line" cx="100" cy="220" r="11"/>
+    <rect class="i-chrome-line" x="95" y="215" width="10" height="10" rx="2"/>
+  </symbol>
+
+  <symbol id="s-keyphone" viewBox="0 0 200 250">
+    <rect class="i-chrome" x="38" y="4" width="124" height="242" rx="16"/>
+    <rect class="i-glass" x="42" y="8" width="116" height="234" rx="13"/>
+    <rect class="i-display" x="56" y="24" width="88" height="76" rx="3"/>
+    <rect class="i-lcd" x="62" y="32" width="56" height="4" rx="1"/><rect class="i-lcd" x="62" y="44" width="72" height="4" rx="1" opacity=".7"/>
+    <rect class="i-lcd" x="62" y="54" width="64" height="4" rx="1" opacity=".7"/><rect class="i-lcd" x="62" y="64" width="40" height="4" rx="1" opacity=".7"/>
+    <rect class="i-chrome" x="56" y="108" width="88" height="16" rx="8" opacity=".35"/>
+    <circle class="i-chrome" cx="100" cy="116" r="6"/>
+    <rect x="50" y="134" width="100" height="90" fill="url(#p-minikey)"/>
+  </symbol>
+</svg>
+
+<header class="menubar">
+  <a class="mark" href="#home">NHD 2027</a>
+  <nav aria-label="Main menu">
+    <ul>
+      <li><a href="#home" data-nav>Home</a></li>
+      <li><a href="#background" data-nav>Background</a></li>
+      <li><a href="#innovation" data-nav>Innovation</a></li>
+      <li><a href="#impact" data-nav>Impact</a></li>
+      <li><a href="#change" data-nav>Change</a></li>
+      <li><a href="#conclusion" data-nav>Conclusion</a></li>
+      <li><a href="#process-paper" data-nav>Process Paper</a></li>
+      <li><a href="#bibliography" data-nav>Bibliography</a></li>
+    </ul>
+  </nav>
+  <button class="notes-toggle" id="notes-toggle" type="button" aria-pressed="false">Builder notes</button>
+</header>
+
+<main>
+
+<!-- ======================= HOME ======================= -->
+<section class="page" id="home" data-label="Home" data-counts>
+  <div class="home-grid">
+    <div>
+      <p class="eyebrow">Innovation in History: Impact, Influence, Change</p>
+      <h1>A Bicycle for the Mind</h1>
+      <p class="subtitle">How Apple's innovations made technology personal</p>
+      <p class="eyebrow">Thesis</p>
+      <p class="thesis">Apple did not invent the personal computer, the mouse, the music player, or the smartphone. Its innovation was turning these complicated technologies into simple tools that ordinary people wanted to use. From the Apple II in 1977 to the iPhone in 2007, Apple moved computing out of offices and labs and into homes and pockets. This changed how billions of people work and communicate and influenced nearly every device made since, but it also raised questions about labor, privacy, and screen time that society is still debating.</p>
+      <aside class="note" data-nocount>
+        <p>Rewrite the thesis in your own words. NHD requires every student-composed word to be yours, and judges will ask you to explain it in your interview.</p>
+        <p>Live word count by page (quotes, credits, menus and these notes are not counted):</p>
+        <table id="wc-table"><tbody></tbody></table>
+      </aside>
+    </div>
+    <div class="window about">
+      <div class="titlebar"><span class="closebox"></span><span class="wtitle">About This Entry</span></div>
+      <dl>
+        <div><dt>Student</dt><dd><span class="fill-in">Your Name</span></dd></div>
+        <div><dt>Division</dt><dd>Junior</dd></div>
+        <div><dt>Category</dt><dd>Individual Website</dd></div>
+        <div><dt>Student-composed words</dt><dd data-out="words">0</dd></div>
+        <div><dt>Process paper words</dt><dd data-out="pp">0</dd></div>
+        <div><dt>Multimedia</dt><dd data-out="media">0:00</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="parade" aria-label="Apple devices from 1977 to 2007">
+    <a href="#apple-ii"><svg viewBox="0 0 360 262" role="img" aria-label="Apple II"><use href="#s-apple2"/></svg><span class="yr">1977</span></a>
+    <a href="#macintosh"><svg viewBox="0 0 320 266" role="img" aria-label="Macintosh"><use href="#s-mac"/></svg><span class="yr">1984</span></a>
+    <a href="#ipod"><svg viewBox="0 0 220 300" role="img" aria-label="iPod"><use href="#s-ipod"/></svg><span class="yr">2001</span></a>
+    <a href="#iphone"><svg viewBox="0 0 200 250" role="img" aria-label="iPhone"><use href="#s-iphone"/></svg><span class="yr">2007</span></a>
+  </div>
+
+  <nav class="pager" aria-label="Page navigation"><a class="next" href="#background">Begin: Background →</a></nav>
+</section>
+
+<!-- ======================= BACKGROUND ======================= -->
+<section class="page" id="background" data-label="Background" data-counts>
+  <p class="eyebrow">Background · 1945–1976</p>
+  <h2>Computers for the Few</h2>
+
+  <div class="split">
+    <div class="stack">
+      <p>The first electronic computers of the 1940s filled entire rooms. Through the 1960s, computers were expensive machines owned by governments, universities, and large companies such as IBM. Ordinary people never touched one. Programmers often fed in instructions on punched cards and waited hours for results.</p>
+    </div>
+    <figure class="artifact">
+      <div class="window"><div class="titlebar"><span class="closebox"></span></div>
+        <span class="pic"><svg viewBox="0 0 360 220" role="img" aria-label="Drawing of a 1960s mainframe computer room with tape drives"><use href="#s-mainframe"/></svg></span></div>
+      <figcaption>A typical 1960s mainframe installation<span class="credit">Illustration made for this draft</span></figcaption>
+    </figure>
+  </div>
+  <aside class="note" data-nocount>
+    <p>Replace each drawing on this site with a real, credited photo. NHD does not allow AI-generated images. Try the IBM Archives or the Computer History Museum for a mainframe photo, and find a scan of the January 1975 <em>Popular Electronics</em> cover.</p>
+  </aside>
+
+  <div class="split flip">
+    <div class="stack">
+      <h3>The Hobbyist Revolution</h3>
+      <p>In January 1975, the Altair 8800 appeared on the cover of <em>Popular Electronics</em>. For about $400, hobbyists could build their own computer from a kit. But the Altair had no keyboard or screen. Users programmed it by flipping switches and read the results in blinking lights.</p>
+      <figure class="quote">
+        <blockquote><p>Project Breakthrough! World's First Minicomputer Kit to Rival Commercial Models</p></blockquote>
+        <figcaption class="credit">Cover headline, <em>Popular Electronics</em>, January 1975</figcaption>
+      </figure>
+      <p>Hobbyists in Silicon Valley formed the Homebrew Computer Club to trade ideas. One member, Steve Wozniak, designed his own computer. His friend Steve Jobs believed that people who were not hobbyists would want one too, if it were easy to use.</p>
+    </div>
+    <figure class="artifact">
+      <div class="window"><div class="titlebar"><span class="closebox"></span></div>
+        <span class="pic"><svg viewBox="0 0 360 150" role="img" aria-label="Drawing of the Altair 8800 front panel with rows of lights and toggle switches"><use href="#s-altair"/></svg></span></div>
+      <figcaption>The Altair 8800's switch-and-light front panel<span class="credit">Illustration made for this draft</span></figcaption>
+    </figure>
+  </div>
+
+  <nav class="pager" aria-label="Page navigation"><a href="#home">← Home</a><a class="next" href="#innovation">Innovation →</a></nav>
+</section>
+
+<!-- ======================= INNOVATION ======================= -->
+<section class="page" id="innovation" data-label="Innovation" data-counts>
+  <p class="eyebrow">Innovation · 1976–2008</p>
+  <h2>Making Technology Usable</h2>
+  <p class="lede">Apple's major innovations followed a pattern: take an idea that already existed and redesign it so anyone could use it.</p>
+
+  <ol class="rail">
+    <li><a href="#apple-ii"><span class="yr">1977</span><span class="what">Apple II</span></a></li>
+    <li><a href="#macintosh"><span class="yr">1984</span><span class="what">Macintosh</span></a></li>
+    <li><a href="#ipod"><span class="yr">2001</span><span class="what">iPod</span></a></li>
+    <li><a href="#iphone"><span class="yr">2007</span><span class="what">iPhone</span></a></li>
+  </ol>
+
+  <article class="milestone split" id="apple-ii">
+    <div class="stack">
+      <div>
+        <p class="when">1976–1979</p>
+        <h3>Apple II: A Computer in a Box</h3>
+      </div>
+      <p>Jobs and Wozniak founded Apple Computer on April 1, 1976. Their first product, the Apple I, was a bare circuit board. The Apple II, released in 1977, arrived fully assembled in a plastic case with a keyboard and color graphics. Buyers could connect it to a TV and start working. When VisiCalc, the first spreadsheet program for personal computers, came out for it in 1979, businesses had a reason to buy one too.</p>
+    </div>
+    <figure class="artifact">
+      <div class="window"><div class="titlebar"><span class="closebox"></span></div>
+        <span class="pic"><svg viewBox="0 0 360 262" role="img" aria-label="Drawing of an Apple II computer with a green-screen monitor"><use href="#s-apple2"/></svg></span></div>
+      <figcaption>The Apple II with a monitor<span class="credit">Illustration made for this draft</span></figcaption>
+    </figure>
+  </article>
+
+  <article class="milestone split flip" id="macintosh">
+    <div class="stack">
+      <div>
+        <p class="when">1979–1984</p>
+        <h3>Macintosh: Point and Click</h3>
+      </div>
+      <p>In 1979, Jobs toured Xerox PARC, where researchers had built a computer controlled with a mouse and on-screen windows. Xerox never turned it into a popular product. Apple did. The Macintosh, launched in January 1984, let users click icons and menus instead of memorizing typed commands.</p>
+      <figure class="quote">
+        <blockquote><p>On January 24th, Apple Computer will introduce Macintosh. And you'll see why 1984 won't be like "1984."</p></blockquote>
+        <figcaption class="credit">Apple's “1984” Super Bowl commercial, January 22, 1984</figcaption>
+      </figure>
+      <figure class="media" data-seconds="60" data-nocount>
+        <div class="screen-frame">
+          <svg class="play" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19 15 L35 24 L19 33 Z" fill="currentColor"/></svg>
+          <div class="meta"><span class="time">1:00</span><span>Apple, “1984” commercial, directed by Ridley Scott (1984)</span></div>
+        </div>
+        <figcaption><a href="https://www.youtube.com/results?search_query=Apple+1984+Macintosh+Super+Bowl+commercial" target="_blank" rel="noopener">Find this clip on YouTube ↗</a></figcaption>
+      </figure>
+    </div>
+    <figure class="artifact">
+      <div class="window"><div class="titlebar"><span class="closebox"></span></div>
+        <span class="pic"><svg viewBox="0 0 320 266" role="img" aria-label="Drawing of the original Macintosh computer and its mouse"><use href="#s-mac"/></svg></span></div>
+      <figcaption>The Macintosh and its mouse<span class="credit">Illustration made for this draft</span></figcaption>
+    </figure>
+  </article>
+  <aside class="note" data-nocount>
+    <p>Video slots: download the clip, trim it, and upload it in NHDWebCentral. All audio and video on the site must add up to 3:00 or less. The total on the Home page updates from these slots.</p>
+  </aside>
+
+  <article class="milestone split" id="ipod">
+    <div class="stack">
+      <div>
+        <p class="when">1997–2003</p>
+        <h3>iPod and iTunes: Music Goes Digital</h3>
+      </div>
+      <p>By 1997, Apple was losing money. Jobs, who had been forced out in 1985, returned to lead the company. In 2001, Apple introduced the iPod, a pocket-sized player that held 1,000 songs. In 2003, the iTunes Music Store began selling songs legally for 99 cents each, at a time when many people downloaded music illegally.</p>
+      <figure class="quote">
+        <blockquote><p>What would I do? I'd shut it down and give the money back to the shareholders.</p></blockquote>
+        <figcaption class="credit">Michael Dell, CEO of Dell Computer, asked about Apple in October 1997</figcaption>
+      </figure>
+    </div>
+    <figure class="artifact">
+      <div class="window"><div class="titlebar"><span class="closebox"></span></div>
+        <span class="pic"><svg viewBox="0 0 220 300" role="img" aria-label="Drawing of the first iPod with its click wheel and white earbuds"><use href="#s-ipod"/></svg></span></div>
+      <figcaption>The first iPod<span class="credit">Illustration made for this draft</span></figcaption>
+    </figure>
+  </article>
+
+  <article class="milestone split flip" id="iphone">
+    <div class="stack">
+      <div>
+        <p class="when">2007–2008</p>
+        <h3>iPhone: The Internet in Your Pocket</h3>
+      </div>
+      <p>Smartphones like the BlackBerry already existed, but they had tiny keyboards and clumsy web browsers. The iPhone, announced in January 2007, replaced the keyboard with a multi-touch screen and displayed full websites. In 2008, the App Store let outside developers sell software for it, turning one phone into a camera, a map, a game console, and more.</p>
+      <figure class="quote">
+        <blockquote><p>Every once in a while, a revolutionary product comes along that changes everything.</p></blockquote>
+        <figcaption class="credit">Steve Jobs, Macworld keynote, January 9, 2007</figcaption>
+      </figure>
+      <figure class="media" data-seconds="45" data-nocount>
+        <div class="screen-frame">
+          <svg class="play" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19 15 L35 24 L19 33 Z" fill="currentColor"/></svg>
+          <div class="meta"><span class="time">0:45</span><span>Steve Jobs introduces the iPhone, Macworld 2007</span></div>
+        </div>
+        <figcaption><a href="https://www.youtube.com/results?search_query=Steve+Jobs+introduces+iPhone+Macworld+2007+keynote" target="_blank" rel="noopener">Find this clip on YouTube ↗</a></figcaption>
+      </figure>
+    </div>
+    <figure class="artifact">
+      <div class="window"><div class="titlebar"><span class="closebox"></span></div>
+        <span class="pic"><svg viewBox="0 0 200 250" role="img" aria-label="Drawing of the original iPhone showing a grid of app icons"><use href="#s-iphone"/></svg></span></div>
+      <figcaption>The original iPhone<span class="credit">Illustration made for this draft</span></figcaption>
+    </figure>
+  </article>
+  <aside class="note" data-nocount>
+    <p>Good photo sources: the Computer History Museum's online collection, the Smithsonian's National Museum of American History, and Apple Newsroom press images. Check each image's terms and credit it under the picture.</p>
+  </aside>
+
+  <nav class="pager" aria-label="Page navigation"><a href="#background">← Background</a><a class="next" href="#impact">Impact →</a></nav>
+</section>
+
+<!-- ======================= IMPACT ======================= -->
+<section class="page" id="impact" data-label="Impact" data-counts>
+  <p class="eyebrow">Impact &amp; Influence</p>
+  <h2>How the World Responded</h2>
+
+  <div class="split">
+    <div class="stack">
+      <h3>Short-Term Impact</h3>
+      <p>Apple's innovations had immediate effects. When Apple first sold stock to the public in 1980, it was the largest IPO since Ford's in 1956. In 1985, the Macintosh, Apple's LaserWriter printer, and PageMaker software let people design newsletters and flyers at a desk, creating desktop publishing. The iTunes Store sold one million songs in its first week and 25 billion by 2013.</p>
+      <h3>Influence on Competitors</h3>
+      <p>Rivals copied Apple's ideas. Microsoft released Windows in 1985, bringing a point-and-click design to most of the world's computers. When the iPhone appeared, Microsoft's CEO doubted it would succeed.</p>
+      <figure class="quote">
+        <blockquote><p>There's no chance that the iPhone is going to get any significant market share. No chance.</p></blockquote>
+        <figcaption class="credit">Steve Ballmer, CEO of Microsoft, <em>USA Today</em>, April 2007</figcaption>
+      </figure>
+      <p>He was wrong. Google's Android soon adopted touchscreens and an app store, and in 2016 Apple sold its one-billionth iPhone. That same year, BlackBerry, once the leading smartphone maker, stopped designing its own phones.</p>
+    </div>
+    <figure class="artifact">
+      <div class="window"><div class="titlebar"><span class="closebox"></span></div>
+        <span class="pic"><svg viewBox="0 0 400 250" role="img" aria-label="Drawing comparing a keyboard smartphone with a touchscreen smartphone"><use href="#s-keyphone" x="0" y="0" width="200" height="250"/><use href="#s-iphone" x="200" y="0" width="200" height="250"/></svg></span></div>
+      <figcaption>Keyboard smartphones gave way to touchscreens<span class="credit">Illustration made for this draft</span></figcaption>
+    </figure>
+  </div>
+  <aside class="note" data-nocount>
+    <p>Strong addition: a real newspaper headline from 1984 or 2007 reacting to the Mac or iPhone. Ask your librarian about newspaper databases.</p>
+  </aside>
+
+  <nav class="pager" aria-label="Page navigation"><a href="#innovation">← Innovation</a><a class="next" href="#change">Change →</a></nav>
+</section>
+
+<!-- ======================= CHANGE ======================= -->
+<section class="page" id="change" data-label="Change" data-counts>
+  <p class="eyebrow">Change · 2008–Today</p>
+  <h2>A World Reshaped</h2>
+
+  <div class="split">
+    <div class="stack">
+      <p>Over time, Apple's innovations changed daily life. In 2011, 35 percent of American adults owned a smartphone. Today, about 91 percent do. People now use phones to navigate, pay for things, take photos, and do homework, jobs that once needed separate devices. New industries, from app development to ride-sharing, grew out of the smartphone.</p>
+    </div>
+    <figure class="chart">
+      <div class="chart-title">U.S. adults who own a smartphone</div>
+      <div class="meter-row" role="img" aria-label="2011: 35 percent">
+        <span class="meter-label">2011</span><span class="meter-track"><span class="meter-fill" style="--v:35%"></span></span><span class="meter-value">35%</span>
+      </div>
+      <div class="meter-row" role="img" aria-label="Today: 91 percent">
+        <span class="meter-label">Today</span><span class="meter-track"><span class="meter-fill" style="--v:91%"></span></span><span class="meter-value">91%</span>
+      </div>
+      <figcaption class="credit">Data: Pew Research Center, “Mobile Fact Sheet”</figcaption>
+    </figure>
+  </div>
+  <aside class="note" data-nocount>
+    <p>Idea: interview a parent or grandparent about life before smartphones. An oral history interview counts as a primary source, and a short quote from it would fit right here.</p>
+  </aside>
+
+  <div class="split">
+    <div class="stack">
+      <h3>The Costs of Change</h3>
+      <p>These changes came with costs. In 2010, a series of worker suicides at Foxconn, the Chinese company that assembled iPhones, exposed long hours and harsh conditions. A 2012 Fair Labor Association investigation confirmed serious violations. More recently, psychologist Jonathan Haidt has argued that smartphones harm teenagers' mental health, and in 2024 the U.S. government sued Apple, claiming it uses the iPhone to block competition.</p>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Page navigation"><a href="#impact">← Impact</a><a class="next" href="#conclusion">Conclusion →</a></nav>
+</section>
+
+<!-- ======================= CONCLUSION ======================= -->
+<section class="page" id="conclusion" data-label="Conclusion" data-counts>
+  <p class="eyebrow">Conclusion</p>
+  <h2>Technology for Everyone</h2>
+  <div class="split">
+    <div class="stack">
+      <p>Apple's greatest innovation was not one device. It was the idea that powerful technology should be simple enough for anyone to use. The Apple II, Macintosh, iPod, and iPhone each took a complicated invention and made it personal. Their impact reshaped the computer, music, and phone industries, and their influence appears in nearly every device people use today. The change is still unfolding as society weighs the benefits of constant connection against its costs.</p>
+    </div>
+    <figure class="quote">
+      <blockquote><p>What a computer is to me is it's the most remarkable tool that we've ever come up with, and it's the equivalent of a bicycle for our minds.</p></blockquote>
+      <figcaption class="credit">Steve Jobs, interviewed in <em>Memory &amp; Imagination</em> (1990)</figcaption>
+    </figure>
+  </div>
+  <aside class="note" data-nocount>
+    <p>A strong conclusion answers “So what?” Say in your own words why Apple's story matters in history, and connect it back to Innovation, Impact, Influence and Change.</p>
+  </aside>
+
+  <nav class="pager" aria-label="Page navigation"><a href="#change">← Change</a><a class="next" href="#process-paper">Process Paper →</a></nav>
+</section>
+
+<!-- ======================= PROCESS PAPER ======================= -->
+<section class="page" id="process-paper" data-label="Process Paper">
+  <p class="eyebrow">Required · Does not count toward the 1,200-word limit</p>
+  <h2>Process Paper</h2>
+  <p class="pp-count" data-nocount><span data-out="pp">0</span> of 500 words</p>
+  <aside class="note" data-nocount>
+    <p>This page has to be written by you, about what you actually did. It is limited to 500 words. Delete each dashed box once you have written that section; the word count on the Home page updates automatically.</p>
+  </aside>
+
+  <div class="pp-text">
+    <div class="pp-section">
+      <h3>How I Chose My Topic</h3>
+      <p class="placeholder" data-nocount>Why did you pick Apple? What made you curious? How does it fit the 2027 theme? (about 100 words)</p>
+    </div>
+    <div class="pp-section">
+      <h3>How I Conducted My Research</h3>
+      <p class="placeholder" data-nocount>Where did you look first? Which sources helped most (books, the 1984 ad, the 2007 keynote, museum websites, an interview)? What surprised you? (about 150 words)</p>
+    </div>
+    <div class="pp-section">
+      <h3>How I Created My Website</h3>
+      <p class="placeholder" data-nocount>Why did you choose the website category? How did you organize the pages and pick images and clips? What was hard? (about 125 words)</p>
+    </div>
+    <div class="pp-section">
+      <h3>How My Project Relates to the Theme</h3>
+      <p class="placeholder" data-nocount>State your argument and explain the innovation, its impact and influence, and the change it caused. Why does it matter in history? (about 125 words)</p>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Page navigation"><a href="#conclusion">← Conclusion</a><a class="next" href="#bibliography">Bibliography →</a></nav>
+</section>
+
+<!-- ======================= BIBLIOGRAPHY ======================= -->
+<section class="page" id="bibliography" data-label="Bibliography">
+  <p class="eyebrow">Required · Does not count toward the 1,200-word limit</p>
+  <h2>Annotated Bibliography</h2>
+  <aside class="note" data-nocount>
+    <p>This is a starter list in MLA format. Keep only sources you actually read or watched, check every detail against the real source, and rewrite each annotation to say how <strong>you</strong> used it and how it helped you understand the topic.</p>
+  </aside>
+
+  <div class="bib-group">
+    <h3>Primary Sources</h3>
+    <ol class="bib">
+      <li><p class="cite">Apple Computer, Inc. “1984.” Directed by Ridley Scott, Chiat/Day, 22 Jan. 1984. Television commercial broadcast during Super Bowl XVIII.</p>
+        <p class="annot">This one-minute commercial, inspired by George Orwell's novel <em>Nineteen Eighty-Four</em>, announced the Macintosh. It showed how Apple presented the Mac as a tool that would free ordinary people, and a clip of it appears on the Innovation page.</p></li>
+      <li><p class="cite">Apple Computer, Inc. “Apple Launches the iTunes Music Store.” <em>Apple Newsroom</em>, 28 Apr. 2003.</p>
+        <p class="annot">This press release announced the iTunes Music Store and its 99-cent price per song. It explained how Apple offered a legal alternative to illegal downloading.</p></li>
+      <li><p class="cite">Apple Computer, Inc. “Apple Presents iPod.” <em>Apple Newsroom</em>, 23 Oct. 2001.</p>
+        <p class="annot">Apple's announcement of the first iPod describes it as holding 1,000 songs. It provided the date and features used on the Innovation page.</p></li>
+      <li><p class="cite">Apple Computer, Inc. “iTunes Music Store Sells Over One Million Songs in First Week.” <em>Apple Newsroom</em>, 5 May 2003.</p>
+        <p class="annot">This release reported the store's first-week sales, which show how quickly people accepted paying for digital music.</p></li>
+      <li><p class="cite">Apple Inc. “Apple Celebrates One Billion iPhones.” <em>Apple Newsroom</em>, 27 July 2016.</p>
+        <p class="annot">Apple announced it had sold its one-billionth iPhone. This statistic shows the scale of the iPhone's impact nine years after its release.</p></li>
+      <li><p class="cite">Apple Inc. “Apple Reinvents the Phone with iPhone.” <em>Apple Newsroom</em>, 9 Jan. 2007.</p>
+        <p class="annot">The original iPhone press release lists its features, including the multi-touch screen and full web browser, and how Apple described the device at the time.</p></li>
+      <li><p class="cite">Apple Inc. “iPhone App Store Downloads Top 10 Million in First Weekend.” <em>Apple Newsroom</em>, 14 July 2008.</p>
+        <p class="annot">This release shows how quickly people began using apps, which turned the iPhone into a platform for other companies' software.</p></li>
+      <li><p class="cite">Apple Inc. “iTunes Store Sets New Record with 25 Billion Songs Sold.” <em>Apple Newsroom</em>, 6 Feb. 2013.</p>
+        <p class="annot">This milestone demonstrates the long-term impact of iTunes on how people bought music.</p></li>
+      <li><p class="cite">Dell, Michael. Remarks at Gartner Symposium/ITxpo. 6 Oct. 1997, Orlando, FL.</p>
+        <p class="annot">Dell's comment that he would shut Apple down, widely reported at the time, shows how close the company came to failure before Jobs returned.</p></li>
+      <li><p class="cite">Fair Labor Association. <em>Independent Investigation of Apple Supplier, Foxconn</em>. Fair Labor Association, Mar. 2012.</p>
+        <p class="annot">This investigation of the factories that built Apple products documented excessive overtime and other violations. It shows a hidden cost of Apple's success.</p></li>
+      <li><p class="cite">Jobs, Steve. Interview. <em>Memory &amp; Imagination: New Pathways to the Library of Congress</em>, directed by Julian Krainin and Michael R. Lawrence, Krainin Productions, 1990.</p>
+        <p class="annot">In this documentary, Jobs describes the computer as “a bicycle for our minds.” The quote inspired the title of this website and summarizes Apple's goal.</p></li>
+      <li><p class="cite">Jobs, Steve. Keynote address. Macworld Conference and Expo, 9 Jan. 2007, Moscone Center, San Francisco.</p>
+        <p class="annot">In this presentation, Jobs introduced the iPhone. Watching it showed how Apple explained multi-touch to an audience used to keyboard phones, and a clip appears on the Innovation page.</p></li>
+      <li><p class="cite">Lieberman, David. “CEO Forum: Microsoft's Ballmer Having a ‘Great Time.’” <em>USA Today</em>, 29 Apr. 2007.</p>
+        <p class="annot">In this interview, Microsoft's CEO predicted the iPhone would fail. It shows how competitors underestimated Apple's innovation.</p></li>
+      <li><p class="cite">Roberts, H. Edward, and William Yates. “Altair 8800: The Most Powerful Minicomputer Project Ever Presented.” <em>Popular Electronics</em>, Jan. 1975, pp. 33–38.</p>
+        <p class="annot">This magazine article introduced the Altair kit to hobbyists. It shows what personal computing looked like before Apple, when users had to build and program machines themselves.</p></li>
+      <li><p class="cite">United States, Department of Justice. “Justice Department Sues Apple for Monopolizing Smartphone Markets.” Office of Public Affairs, 21 Mar. 2024.</p>
+        <p class="annot">This announcement explains the government's case against Apple and shows that Apple's influence is still debated today.</p></li>
+      <li><p class="cite">Wozniak, Steve, with Gina Smith. <em>iWoz: Computer Geek to Cult Icon</em>. W. W. Norton, 2006.</p>
+        <p class="annot">Wozniak's autobiography describes building the Apple I and Apple II and his time at the Homebrew Computer Club, in his own words.</p></li>
+    </ol>
+  </div>
+
+  <div class="bib-group">
+    <h3>Secondary Sources</h3>
+    <ol class="bib">
+      <li><p class="cite">Computer History Museum. “Timeline of Computer History.” <em>Computer History Museum</em>, www.computerhistory.org/timeline/. Accessed <span class="fill-in">day Month year</span>.</p>
+        <p class="annot">The museum's timeline gave background on early computers and the hobbyist era that came before Apple.</p></li>
+      <li><p class="cite">Duhigg, Charles, and David Barboza. “In China, Human Costs Are Built Into an iPad.” <em>The New York Times</em>, 25 Jan. 2012.</p>
+        <p class="annot">This investigation describes working conditions in factories that made Apple products and helped explain the costs discussed on the Change page.</p></li>
+      <li><p class="cite">Freiberger, Paul, and Michael Swaine. <em>Fire in the Valley: The Making of the Personal Computer</em>. 2nd ed., McGraw-Hill, 2000.</p>
+        <p class="annot">This history of the personal computer industry explains the Altair, the Homebrew Computer Club, and Apple's early years.</p></li>
+      <li><p class="cite">Haidt, Jonathan. <em>The Anxious Generation: How the Great Rewiring of Childhood Is Causing an Epidemic of Mental Illness</em>. Penguin Press, 2024.</p>
+        <p class="annot">Haidt argues that smartphones have harmed teenagers' mental health. His argument represents a modern criticism of the change smartphones caused.</p></li>
+      <li><p class="cite">Hiltzik, Michael A. <em>Dealers of Lightning: Xerox PARC and the Dawn of the Computer Age</em>. HarperBusiness, 1999.</p>
+        <p class="annot">This book explains what researchers at Xerox PARC invented and why Xerox did not sell it widely, supporting the idea that Apple innovated more than it invented.</p></li>
+      <li><p class="cite">Isaacson, Walter. <em>Steve Jobs</em>. Simon &amp; Schuster, 2011.</p>
+        <p class="annot">This biography, based on interviews with Jobs, covers Apple's founding, Jobs's departure and return, and the development of the iPod and iPhone.</p></li>
+      <li><p class="cite">Levy, Steven. <em>Insanely Great: The Life and Times of Macintosh, the Computer That Changed Everything</em>. Viking, 1994.</p>
+        <p class="annot">Levy, a journalist who covered the Mac's launch, explains how it was designed and how people reacted to it.</p></li>
+      <li><p class="cite">Levy, Steven. <em>The Perfect Thing: How the iPod Shuffles Commerce, Culture, and Coolness</em>. Simon &amp; Schuster, 2006.</p>
+        <p class="annot">This book describes how the iPod and iTunes changed the music industry and how people listened to music.</p></li>
+      <li><p class="cite">Merchant, Brian. <em>The One Device: The Secret History of the iPhone</em>. Little, Brown and Company, 2017.</p>
+        <p class="annot">Merchant traces the technologies the iPhone combined, such as touchscreens, and the workers who build it. It supports the argument that Apple's innovation was combining existing ideas.</p></li>
+      <li><p class="cite">Pew Research Center. “Mobile Fact Sheet.” <em>Pew Research Center</em>, www.pewresearch.org/internet/fact-sheet/mobile/. Accessed <span class="fill-in">day Month year</span>.</p>
+        <p class="annot">Pew's survey data on smartphone ownership provides the numbers used in the chart on the Change page.</p></li>
+    </ol>
+  </div>
+
+  <nav class="pager" aria-label="Page navigation"><a href="#process-paper">← Process Paper</a><a class="next" href="#home">Back to Home</a></nav>
+</section>
+
+</main>
+
+<footer class="site" data-nocount>National History Day 2027 · Junior Individual Website · Draft</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // ----- page routing (plain #anchors so links work anywhere) -----
+  var pages = Array.prototype.slice.call(document.querySelectorAll(".page"));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
+
+  function route() {
+    var id = (location.hash || "#home").slice(1);
+    var target = document.getElementById(id) || document.getElementById("home");
+    var page = target.classList.contains("page") ? target : target.closest(".page");
+    if (!page) { page = document.getElementById("home"); target = page; }
+    pages.forEach(function (p) { p.classList.toggle("is-active", p === page); });
+    navLinks.forEach(function (a) {
+      if (a.getAttribute("href") === "#" + page.id) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+    if (target === page) window.scrollTo(0, 0);
+    else requestAnimationFrame(function () { target.scrollIntoView(); });
+  }
+  window.addEventListener("hashchange", route);
+  route();
+
+  // ----- word counting -----
+  // Not counted: quotes, source credits, menus, page buttons, video slots,
+  // builder notes, drawings, and anything marked data-nocount.
+  var SKIP = "[data-nocount], .note, .menubar, .pager, blockquote, .credit, .media, svg, script, style";
+
+  function countWords(root) {
+    var n = 0;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (t) {
+        var el = t.parentElement;
+        return el && el.closest(SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    while (walker.nextNode()) {
+      var tokens = walker.currentNode.nodeValue.split(/\s+/);
+      for (var i = 0; i < tokens.length; i++) if (/[A-Za-z0-9]/.test(tokens[i])) n++;
+    }
+    return n;
+  }
+
+  function fmtTime(s) {
+    var m = Math.floor(s / 60), r = s % 60;
+    return m + ":" + (r < 10 ? "0" : "") + r;
+  }
+
+  function out(name, value) {
+    document.querySelectorAll('[data-out="' + name + '"]').forEach(function (el) { el.textContent = value; });
+  }
+
+  function updateCounts() {
+    var total = 0;
+    var rows = "";
+    document.querySelectorAll(".page[data-counts]").forEach(function (p) {
+      var n = countWords(p);
+      total += n;
+      rows += "<tr><td>" + p.getAttribute("data-label") + "</td><td>" + n + "</td></tr>";
+    });
+    rows += "<tr><td><strong>Total</strong></td><td><strong>" + total + " / 1,200</strong></td></tr>";
+    var table = document.querySelector("#wc-table tbody");
+    if (table) table.innerHTML = rows;
+    out("words", total.toLocaleString("en-US"));
+
+    var pp = document.querySelector(".pp-text");
+    out("pp", pp ? countWords(pp) : 0);
+
+    var secs = 0;
+    document.querySelectorAll(".media[data-seconds]").forEach(function (m) { secs += parseInt(m.getAttribute("data-seconds"), 10) || 0; });
+    out("media", fmtTime(secs) + " of 3:00");
+  }
+  updateCounts();
+
+  // ----- builder notes toggle (remembered per browser when storage is available) -----
+  var toggle = document.getElementById("notes-toggle");
+  function setNotes(on) {
+    document.body.classList.toggle("show-notes", on);
+    toggle.setAttribute("aria-pressed", on ? "true" : "false");
+    try { localStorage.setItem("nhd-notes", on ? "1" : "0"); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("nhd-notes"); } catch (e) {}
+  setNotes(saved === "1");
+  toggle.addEventListener("click", function () { setNotes(!document.body.classList.contains("show-notes")); });
+})();
+</script>
+<!--ARTIFACT-END-->
+</body>
+</html>
