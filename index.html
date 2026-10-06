@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skell — Gorilla Tag Creator</title>
+    <meta name="description" content="Skell is a Gorilla Tag creator who goes live every single day. Streams, collabs, and creator code SKELL." />
+    <meta name="theme-color" content="#0b0d0a" />
+    <meta property="og:title" content="Skell — Gorilla Tag Creator" />
+    <meta property="og:description" content="Live every day. 14K+ in the troop. Use code SKELL." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="is-loading">
+    <!-- Preloader -->
+    <div class="preloader" aria-hidden="true">
+      <div class="preloader__row mono">
+        <span>Joining lobby…</span>
+        <span>Forest // Code SKELL</span>
+      </div>
+      <div class="preloader__count"><span class="js-count">000</span></div>
+      <div class="preloader__bar"><i class="js-bar"></i></div>
+    </div>
+
+    <!-- Custom cursor (fine pointers only) -->
+    <div class="cursor" aria-hidden="true">
+      <div class="cursor__ring"><span class="cursor__label mono"></span></div>
+      <div class="cursor__dot"></div>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="toast mono" role="status" aria-live="polite"></div>
+
+    <header class="nav">
+      <a href="#top" class="nav__logo" data-scroll aria-label="Skell, back to top">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#mark" /></svg>
+        <span>Skell</span>
+      </a>
+      <nav class="nav__links mono" aria-label="Primary">
+        <a href="#about" data-scroll>About</a>
+        <a href="#troop" data-scroll>Troop</a>
+        <a href="#code" data-scroll>Code</a>
+        <a href="#contact" data-scroll>Contact</a>
+      </nav>
+      <a class="pill mono" href="https://www.youtube.com/@Skellgt" target="_blank" rel="noopener" data-magnetic data-cursor="Watch">
+        <span class="pill__dot"></span> Live daily
+      </a>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero" aria-label="Intro">
+        <canvas class="hero__canvas" aria-hidden="true"></canvas>
+        <div class="hero__shade" aria-hidden="true"></div>
+
+        <div class="hud mono" aria-hidden="true">
+          <div class="hud__c hud__c--l">
+            <p><span>Room</span>FOREST-SKELL</p>
+            <p><span>Players</span>10 / 10</p>
+          </div>
+          <div class="hud__c hud__c--r">
+            <p><span>Mode</span>Infection</p>
+            <p><span>Status</span><b class="hud__live">● On air daily</b></p>
+          </div>
+          <div class="hud__cross"></div>
+        </div>
+
+        <div class="hero__inner">
+          <p class="hero__kicker mono" data-intro>Gorilla Tag creator — live every single day</p>
+          <h1 class="hero__title" aria-label="Skell">
+            <span class="hero__mask"><span class="char">S</span></span>
+            <span class="hero__mask"><span class="char">K</span></span>
+            <span class="hero__mask"><span class="char">E</span></span>
+            <span class="hero__mask"><span class="char">L</span></span>
+            <span class="hero__mask"><span class="char">L</span></span>
+          </h1>
+          <div class="hero__foot">
+            <p class="hero__lede" data-intro>Swinging through the canopy, getting tagged mid‑sentence, and bringing 14K+ monkes along for the ride.</p>
+            <span class="hero__scroll mono" data-intro><i></i>Scroll to climb</span>
+            <a class="btn" href="https://www.youtube.com/@Skellgt" target="_blank" rel="noopener" data-magnetic data-cursor="Watch" data-intro>
+              <span>Watch on YouTube</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARQUEE -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track js-marquee">
+          <span>Tag, you're it</span><b>✦</b><span>Live every day</span><b>✦</b><span>Code SKELL</span><b>✦</b><span>Monke see, monke do</span><b>✦</b>
+          <span>Tag, you're it</span><b>✦</b><span>Live every day</span><b>✦</b><span>Code SKELL</span><b>✦</b><span>Monke see, monke do</span><b>✦</b>
+        </div>
+      </div>
+
+      <!-- ABOUT -->
+      <section class="about section" id="about">
+        <div class="label mono" data-reveal><span>(01)</span> Who's Skell</div>
+        <p class="about__text js-words">
+          Skell is a Gorilla Tag creator who shows up <em>every single day.</em> The stream goes live, the lobby fills, and the next few hours are pure arm‑swinging chaos: tag rounds, infection runs, <em>collabs</em> with other creators, and a chat that never sits still.
+        </p>
+        <dl class="facts mono">
+          <div data-reveal><dt>Game</dt><dd>Gorilla Tag</dd></div>
+          <div data-reveal><dt>Schedule</dt><dd>Live every day</dd></div>
+          <div data-reveal><dt>Platform</dt><dd>Meta Quest</dd></div>
+          <div data-reveal><dt>Creator code</dt><dd>SKELL</dd></div>
+        </dl>
+      </section>
+
+      <!-- TROOP / MILESTONES -->
+      <section class="troop section" id="troop">
+        <div class="label mono" data-reveal><span>(02)</span> The troop</div>
+        <div class="troop__grid">
+          <div class="troop__stat">
+            <div class="troop__num"><span class="js-subs">14K</span><sup>+</sup></div>
+            <p class="mono">Subscribers on YouTube</p>
+          </div>
+          <div class="troop__copy" data-reveal>
+            <h2 class="h2">Climbing<br />to <em class="js-goal">15K</em></h2>
+            <p>Every subscriber is another monke in the lobby. Only <strong class="js-togo">1,000</strong> to go until the next branch.</p>
+          </div>
+        </div>
+
+        <div class="branch js-branch">
+          <div class="branch__line"><i class="branch__fill js-fill"></i></div>
+          <div class="branch__here mono js-here"><span class="js-here-label">Now 14K</span></div>
+          <ol class="branch__nodes mono js-nodes" aria-label="Subscriber milestones"></ol>
+        </div>
+
+        <a class="btn btn--ghost" href="https://www.youtube.com/@Skellgt?sub_confirmation=1" target="_blank" rel="noopener" data-magnetic data-cursor="Join" data-reveal>
+          <span>Join the troop</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+        </a>
+      </section>
+
+      <!-- PILLARS (horizontal scroll on desktop) -->
+      <section class="pillars" aria-label="What's on the channel">
+        <div class="pillars__pin">
+          <div class="pillars__track js-track">
+            <div class="pillars__intro">
+              <div class="label mono"><span>(03)</span> On the channel</div>
+              <h2 class="h2">What<br />you'll<br />catch <em>live</em></h2>
+              <p class="pillars__hint mono">Keep scrolling →</p>
+            </div>
+            <article class="card card--bone">
+              <div class="card__top mono"><span>01</span><span>Daily</span></div>
+              <svg class="card__glyph" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="10" /><circle cx="50" cy="50" r="24" /><circle cx="50" cy="50" r="38" /></svg>
+              <div>
+                <h3>Live. Every. Day.</h3>
+                <p>The stream is up daily. Drop in, say hi in chat, and catch it as it happens.</p>
+              </div>
+            </article>
+            <article class="card card--lava">
+              <div class="card__top mono"><span>02</span><span>Collabs</span></div>
+              <svg class="card__glyph" viewBox="0 0 100 100" aria-hidden="true"><circle cx="36" cy="50" r="26" /><circle cx="64" cy="50" r="26" /></svg>
+              <div>
+                <h3>Collabs</h3>
+                <p>Lobbies stacked with other creators. More monkes, more mayhem.</p>
+              </div>
+            </article>
+            <article class="card card--moss">
+              <div class="card__top mono"><span>03</span><span>Gameplay</span></div>
+              <svg class="card__glyph" viewBox="0 0 100 100" aria-hidden="true"><path d="M8 82 L34 26 L54 62 L68 40 L92 82 Z" /></svg>
+              <div>
+                <h3>Tag &amp; infection</h3>
+                <p>Gorilla Tag in its natural habitat: running, climbing, and the occasional very loud tag.</p>
+              </div>
+            </article>
+            <article class="card card--ink">
+              <div class="card__top mono"><span>04</span><span>Community</span></div>
+              <svg class="card__glyph" viewBox="0 0 100 100" aria-hidden="true"><rect x="12" y="20" width="76" height="48" rx="8" /><path d="M30 68 L30 86 L50 68" /></svg>
+              <div>
+                <h3>The chat</h3>
+                <p>Viewers in the lobby, names on screen, inside jokes that started on stream.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CREATOR CODE -->
+      <section class="code section" id="code">
+        <div class="label mono" data-reveal><span>(04)</span> Support a creator</div>
+        <div class="code__grid">
+          <div class="code__copy">
+            <h2 class="h2" data-reveal>Use code<br /><em>SKELL</em></h2>
+            <ol class="steps">
+              <li data-reveal><span class="steps__n mono">01</span><span>Grab Shiny Rocks in Gorilla Tag.</span></li>
+              <li data-reveal><span class="steps__n mono">02</span><span>Enter <strong>SKELL</strong> as your creator code.</span></li>
+              <li data-reveal><span class="steps__n mono">03</span><span>Same price for you. A cut goes to Skell.</span></li>
+            </ol>
+          </div>
+
+          <button class="terminal" type="button" data-copy="SKELL" data-cursor="Copy" aria-label="Copy creator code SKELL" data-reveal>
+            <span class="terminal__bar mono"><i></i><i></i><i></i><span>support_a_creator</span></span>
+            <span class="terminal__body">
+              <span class="terminal__line">&gt; ENTER CREATOR CODE:</span>
+              <span class="terminal__code">SKELL<span class="terminal__caret"></span></span>
+              <span class="terminal__line terminal__line--dim">&gt; STATUS: VALID</span>
+              <span class="terminal__hint js-term-hint">[ PRESS TO COPY ]</span>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <!-- FIND HIM -->
+      <section class="find section" id="contact">
+        <div class="label mono" data-reveal><span>(05)</span> Find Skell</div>
+        <ul class="links">
+          <li data-reveal>
+            <a class="link" href="https://www.youtube.com/@Skellgt" target="_blank" rel="noopener" data-cursor="Open">
+              <span class="link__k mono">YouTube</span><span class="link__v">@Skellgt</span><span class="link__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li data-reveal>
+            <button class="link" type="button" data-copy="notskellvr" data-cursor="Copy" aria-label="Copy Discord username notskellvr">
+              <span class="link__k mono">Discord</span><span class="link__v">@notskellvr</span><span class="link__arrow" aria-hidden="true">⧉</span>
+            </button>
+          </li>
+          <li data-reveal>
+            <button class="link" type="button" data-copy="notskell" data-cursor="Copy" aria-label="Copy Meta username notskell">
+              <span class="link__k mono">Meta</span><span class="link__v">@notskell</span><span class="link__arrow" aria-hidden="true">⧉</span>
+            </button>
+          </li>
+          <li data-reveal>
+            <a class="link" href="mailto:skellvrbusiness@gmail.com" data-cursor="Email">
+              <span class="link__k mono">Business</span><span class="link__v link__v--sm">skellvrbusiness@gmail.com</span><span class="link__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__row mono">
+        <span>Tag me in — <a href="mailto:skellvrbusiness@gmail.com">skellvrbusiness@gmail.com</a></span>
+        <a href="#top" data-scroll>Back to top ↑</a>
+      </div>
+      <div class="footer__word js-fit" aria-hidden="true"><span>S</span><span>K</span><span>E</span><span>L</span><span>L</span></div>
+      <div class="footer__row footer__row--fine mono">
+        <span>© <span class="js-year">2026</span> Skell</span>
+        <span>Gorilla Tag is a trademark of Another Axiom. Not affiliated with Another Axiom.</span>
+      </div>
+    </footer>
+
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="mark" viewBox="0 0 32 32">
+        <path fill="currentColor" fill-rule="evenodd" d="M16 2C8.8 2 3.5 7.2 3.5 14c0 4 1.9 7.2 4.9 9.3V28a2 2 0 0 0 2 2h11.2a2 2 0 0 0 2-2v-4.7c3-2.1 4.9-5.3 4.9-9.3C28.5 7.2 23.2 2 16 2Zm-5 15.5a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm10 0a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4ZM14.6 23l1.4-3 1.4 3h-2.8Z" />
+      </symbol>
+    </svg>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
